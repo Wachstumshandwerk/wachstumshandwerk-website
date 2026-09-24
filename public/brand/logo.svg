@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" width="480" height="100" role="img" aria-labelledby="title desc">
+  <title id="title">Wachstumshandwerk Logo</title>
+  <desc id="desc">WH-Signet mit vertikaler Trennlinie, Wortmarke mit Gewichts-Progression und Untertitel "Vertriebspartner mit Handwerksverstand"</desc>
+
+  <g transform="translate(11.9,25.6) scale(0.68)">
+    <polygon points="9,19 20,19 29,62 39,38 48,62 57,19 68,19 54,80 44,80 39,57 34,80 24,80" fill="#1B4332"/>
+    <rect x="65" y="19" width="10" height="61" fill="#1B4332"/>
+    <rect x="84" y="19" width="10" height="61" fill="#1B4332"/>
+    <rect x="72" y="45" width="15" height="10" fill="#52B788"/>
+  </g>
+
+  <line x1="93" y1="30" x2="93" y2="88" stroke="#1B4332" stroke-width="1.5" opacity="0.3"/>
+
+  <text x="110" y="58" font-size="27" letter-spacing="1">
+    <tspan font-family="'Segoe UI Light', Arial, sans-serif" fill="#1B4332">WACH</tspan><tspan font-family="'Segoe UI', Arial, sans-serif" fill="#1B4332">STUM</tspan><tspan font-family="'Segoe UI Semibold', Arial, sans-serif" fill="#1B4332">SHAN</tspan><tspan font-family="'Segoe UI', Arial, sans-serif" font-weight="bold" fill="#1B4332">DWER</tspan><tspan font-family="'Segoe UI Black', Arial, sans-serif" fill="#52B788">K</tspan>
+  </text>
+  <text x="110" y="80" font-family="'Segoe UI Semibold', Arial, sans-serif" font-size="10" letter-spacing="1.8" fill="#6B7A70">VERTRIEBSPARTNER MIT HANDWERKSVERSTAND</text>
+</svg>

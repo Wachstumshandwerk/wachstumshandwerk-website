@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wachstumshandwerk-dev",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", "C:\\Users\\copyw\\Desktop\\Webseite Wachstumshandwerk\\dev.cmd"],
+      "port": 3000
+    }
+  ]
+}

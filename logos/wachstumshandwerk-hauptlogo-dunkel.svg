@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 110" width="480" height="110" role="img" aria-labelledby="title desc">
+  <title id="title">Wachstumshandwerk Logo</title>
+  <desc id="desc">Hauptversion: dunkelgrüner Block mit sich aufbauender Wortmarke, Schluss-K in Akzentgrün</desc>
+  <rect x="0" y="0" width="480" height="110" rx="14" fill="#1B4332"/>
+  <text x="28" y="70" font-family="'Segoe UI', Arial, sans-serif" font-size="32" letter-spacing="1">
+    <tspan font-weight="350" fill="#F8F6F1">WACH</tspan><tspan font-weight="500" fill="#F8F6F1">STUM</tspan><tspan font-weight="650" fill="#F8F6F1">SHAN</tspan><tspan font-weight="750" fill="#F8F6F1">DWER</tspan><tspan font-weight="800" fill="#52B788">K</tspan>
+  </text>
+</svg>

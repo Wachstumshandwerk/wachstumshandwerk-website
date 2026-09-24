@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 110" width="520" height="110" role="img" aria-labelledby="title desc">
+  <title id="title">Wachstumshandwerk Logo (Kombination)</title>
+  <desc id="desc">Auslese-Raster-Icon neben der Wortmarke WACHSTUMSHANDWERK, für Website-Header und Visitenkarten</desc>
+
+  <g transform="translate(10,10) scale(0.7)">
+    <rect x="0" y="0" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="23" y="0" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="46" y="0" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="69" y="0" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="92" y="0" width="18" height="18" rx="3" fill="#52B788"/>
+
+    <rect x="0" y="23" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="23" y="23" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="46" y="23" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="69" y="23" width="18" height="18" rx="3" fill="#52B788"/>
+    <rect x="92" y="23" width="18" height="18" rx="3" fill="#1B4332"/>
+
+    <rect x="0" y="46" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="23" y="46" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="46" y="46" width="18" height="18" rx="3" fill="#52B788"/>
+    <rect x="69" y="46" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="92" y="46" width="18" height="18" rx="3" fill="#1B4332"/>
+
+    <rect x="0" y="69" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="23" y="69" width="18" height="18" rx="3" fill="#52B788"/>
+    <rect x="46" y="69" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="69" y="69" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="92" y="69" width="18" height="18" rx="3" fill="#1B4332"/>
+
+    <rect x="0" y="92" width="18" height="18" rx="3" fill="#52B788"/>
+    <rect x="23" y="92" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="46" y="92" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="69" y="92" width="18" height="18" rx="3" fill="#1B4332"/>
+    <rect x="92" y="92" width="18" height="18" rx="3" fill="#1B4332"/>
+  </g>
+
+  <text x="110" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="1.5" fill="#1B4332">WACHSTUMSHANDWERK</text>
+  <text x="110" y="82" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#6B7A70">VERTRIEBSPARTNER FÜR HANDWERKSBETRIEBE</text>
+</svg>
