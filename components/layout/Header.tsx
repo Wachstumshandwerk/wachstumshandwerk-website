@@ -4,24 +4,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
 const navItems = [
   { label: "Angebot", href: "/#loesung" },
   { label: "Für wen", href: "/#fuer-wen" },
-  { label: "Über uns", href: "/#gruender" },
+  { label: "Über uns", href: "/ueber-uns" },
   { label: "FAQ", href: "/#faq" },
   { label: "Karriere", href: "/karriere" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isCareerPage = pathname?.startsWith("/karriere");
 
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 40);
+  });
+
   return (
-    <header className="sticky top-0 z-50 border-b border-tannengruen/10 bg-hintergrund/90 backdrop-blur">
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className={`sticky top-0 z-50 border-b border-tannengruen/10 bg-hintergrund/90 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-sm shadow-tannengruen/5" : ""
+      }`}
+    >
       <Container className="flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
@@ -30,7 +44,7 @@ export function Header() {
             width={240}
             height={50}
             priority
-            className="h-9 w-auto md:h-10"
+            className="h-12 w-auto md:h-14"
           />
         </Link>
 
@@ -39,7 +53,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[15px] font-medium text-text/80 transition-colors hover:text-tannengruen"
+              className="text-[15px] font-bold text-tannengruen transition-colors hover:text-tannengruen-dark"
             >
               {item.label}
             </Link>
@@ -74,7 +88,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-3 text-base font-medium text-text hover:bg-tannengruen/5"
+                className="rounded-lg px-3 py-3 text-base font-bold text-tannengruen hover:bg-tannengruen/5"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -92,6 +106,6 @@ export function Header() {
           </Container>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }

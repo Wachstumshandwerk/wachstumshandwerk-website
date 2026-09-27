@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { RevealGroup, RevealBlock } from "@/components/motion/RevealBlock";
 
 const positions = [
   {
@@ -31,21 +32,21 @@ export function OpenPositions() {
           subtitle="Ist gerade nichts Passendes dabei? Wir freuen uns trotzdem über deine Initiativbewerbung."
         />
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <RevealGroup className="grid gap-6 md:grid-cols-2" stagger={0.1}>
           {positions.map((position) => (
-            <div
+            <RevealBlock
               key={position.title}
-              className="flex flex-col gap-2 rounded-2xl border border-tannengruen/10 bg-hintergrund p-6"
+              className="flex flex-col gap-2 rounded-2xl border border-tannengruen/10 bg-hintergrund p-6 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-akzent/40 hover:shadow-lg hover:shadow-tannengruen/5"
             >
               <h3 className="text-lg font-bold text-tannengruen">{position.title}</h3>
               <p className="text-[15px] leading-relaxed text-text/80">{position.description}</p>
-            </div>
+            </RevealBlock>
           ))}
-        </div>
+        </RevealGroup>
 
-        <div className="flex justify-center">
+        <RevealBlock standalone className="flex justify-center">
           <Button href="#bewerbung">Jetzt bewerben</Button>
-        </div>
+        </RevealBlock>
       </Container>
     </section>
   );

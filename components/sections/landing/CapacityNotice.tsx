@@ -1,11 +1,15 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { RevealBlock } from "@/components/motion/RevealBlock";
 
 export function CapacityNotice() {
   return (
     <section className="bg-white py-16">
       <Container>
-        <div className="flex flex-col items-start gap-6 rounded-3xl border border-akzent/30 bg-akzent/10 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+        <RevealBlock
+          standalone
+          className="flex flex-col items-start gap-6 rounded-3xl border border-akzent/30 bg-akzent/10 p-8 md:flex-row md:items-center md:justify-between md:p-10"
+        >
           <div className="flex flex-col gap-2">
             <span className="text-sm font-bold uppercase tracking-[0.15em] text-tannengruen">
               Begrenzte Kapazität
@@ -18,7 +22,7 @@ export function CapacityNotice() {
           <Button href="#kontakt" className="shrink-0">
             Platz sichern
           </Button>
-        </div>
+        </RevealBlock>
       </Container>
     </section>
   );

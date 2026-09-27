@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/Container";
+import { RevealGroup, RevealBlock } from "@/components/motion/RevealBlock";
 
 const faqs = [
   {
@@ -35,15 +37,22 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 py-20 md:py-28">
+    <section id="faq" className="scroll-mt-24 bg-white py-20 md:py-28">
       <Container className="flex flex-col gap-14">
-        <SectionHeading eyebrow="Häufige Fragen" title="Was Geschäftsführer uns am häufigsten fragen" />
+        <SectionHeading
+          eyebrow="Häufige Fragen"
+          title="Was Geschäftsführer uns am häufigsten fragen"
+          align="center"
+        />
 
-        <div className="mx-auto flex w-full max-w-3xl flex-col divide-y divide-tannengruen/10 border-t border-b border-tannengruen/10">
+        <RevealGroup
+          className="mx-auto flex w-full max-w-3xl flex-col divide-y divide-tannengruen/10 border-t border-b border-tannengruen/10"
+          stagger={0.06}
+        >
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={item.q}>
+              <RevealBlock key={item.q}>
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -53,21 +62,31 @@ export function FAQSection() {
                   <span className="text-[15px] font-semibold text-tannengruen md:text-base">
                     {item.q}
                   </span>
-                  <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tannengruen/5 text-tannengruen transition-transform ${
-                      isOpen ? "rotate-45" : ""
-                    }`}
+                  <motion.span
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tannengruen/5 text-tannengruen"
                   >
                     +
-                  </span>
+                  </motion.span>
                 </button>
-                {isOpen && (
-                  <p className="pb-6 text-[15px] leading-relaxed text-text/80">{item.a}</p>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pb-6 text-[15px] leading-relaxed text-text/80">{item.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </RevealBlock>
             );
           })}
-        </div>
+        </RevealGroup>
       </Container>
     </section>
   );

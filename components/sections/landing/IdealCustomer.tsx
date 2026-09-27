@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/Container";
+import { RevealGroup, RevealBlock, RevealListItem } from "@/components/motion/RevealBlock";
 
 const fits = [
   "Du führst einen Handwerksbetrieb (insbesondere SHK) mit 20+ Mitarbeitern und 2,5 Mio. €+ Jahresumsatz.",
@@ -22,35 +23,39 @@ export function IdealCustomer() {
       <Container className="flex flex-col gap-14">
         <SectionHeading eyebrow="Passt das zu dir?" title="Für wen Wachstumshandwerk gemacht ist" />
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="flex flex-col gap-4 rounded-2xl border-2 border-akzent bg-akzent/5 p-7">
+        <RevealGroup className="grid gap-8 md:grid-cols-2" stagger={0.15}>
+          <RevealBlock className="flex flex-col gap-4 rounded-2xl border-2 border-akzent bg-akzent/5 p-7 transition-all duration-300 ease-out hover:border-akzent hover:shadow-lg hover:shadow-akzent/10">
             <h3 className="text-lg font-bold text-tannengruen">Du bist hier richtig, wenn …</h3>
-            <ul className="flex flex-col gap-4">
-              {fits.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-akzent text-sm font-bold text-tannengruen-dark">
-                    ✓
-                  </span>
-                  <span className="text-[15px] leading-relaxed text-text/85">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <RevealGroup className="flex flex-col gap-4" stagger={0.06}>
+              <ul className="contents">
+                {fits.map((item) => (
+                  <RevealListItem key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-akzent text-sm font-bold text-tannengruen-dark">
+                      ✓
+                    </span>
+                    <span className="text-[15px] leading-relaxed text-text/85">{item}</span>
+                  </RevealListItem>
+                ))}
+              </ul>
+            </RevealGroup>
+          </RevealBlock>
 
-          <div className="flex flex-col gap-4 rounded-2xl border border-tannengruen/10 bg-hintergrund p-7">
+          <RevealBlock className="flex flex-col gap-4 rounded-2xl border border-tannengruen/10 bg-hintergrund p-7 transition-all duration-300 ease-out hover:border-tannengruen/25">
             <h3 className="text-lg font-bold text-tannengruen">Eher nicht das Richtige, wenn …</h3>
-            <ul className="flex flex-col gap-4">
-              {noFits.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tannengruen/10 text-sm font-bold text-tannengruen/60">
-                    ✕
-                  </span>
-                  <span className="text-[15px] leading-relaxed text-text/70">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+            <RevealGroup className="flex flex-col gap-4" stagger={0.06}>
+              <ul className="contents">
+                {noFits.map((item) => (
+                  <RevealListItem key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tannengruen/10 text-sm font-bold text-tannengruen/60">
+                      ✕
+                    </span>
+                    <span className="text-[15px] leading-relaxed text-text/70">{item}</span>
+                  </RevealListItem>
+                ))}
+              </ul>
+            </RevealGroup>
+          </RevealBlock>
+        </RevealGroup>
       </Container>
     </section>
   );

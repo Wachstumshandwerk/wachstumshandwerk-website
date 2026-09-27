@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -38,14 +39,19 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-akzent/30 bg-akzent/10 p-8 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="rounded-2xl border border-akzent/30 bg-akzent/10 p-8 text-center"
+      >
         <p className="text-lg font-semibold text-tannengruen">
           Danke! Deine Anfrage ist bei uns angekommen.
         </p>
         <p className="mt-2 text-[15px] text-text/70">
           Jemand aus unserem Team meldet sich in Kürze bei dir, um einen Termin zu finden.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
@@ -68,7 +74,7 @@ export function ContactForm() {
           id="nachricht"
           name="nachricht"
           rows={4}
-          className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none focus:border-akzent"
+          className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none transition-colors duration-200 focus:border-akzent"
           placeholder="Erzähl uns kurz von deinem Betrieb und deiner aktuellen Situation."
         />
       </div>
@@ -77,13 +83,16 @@ export function ContactForm() {
         <p className="text-sm font-medium text-red-600">{errorMessage}</p>
       )}
 
-      <button
+      <motion.button
         type="submit"
         disabled={status === "loading"}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.2 }}
         className="inline-flex items-center justify-center rounded-full bg-akzent px-6 py-3.5 text-[15px] font-semibold text-tannengruen-dark transition-colors hover:brightness-95 disabled:opacity-60"
       >
         {status === "loading" ? "Wird gesendet …" : "Kostenloses Erstgespräch anfragen"}
-      </button>
+      </motion.button>
 
       <p className="text-xs leading-relaxed text-muted">
         Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer{" "}
@@ -121,7 +130,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none focus:border-akzent"
+        className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none transition-colors duration-200 focus:border-akzent"
       />
     </div>
   );

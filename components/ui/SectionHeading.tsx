@@ -1,3 +1,6 @@
+import { RevealText } from "@/components/motion/RevealText";
+import { RevealBlock } from "@/components/motion/RevealBlock";
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -14,17 +17,19 @@ export function SectionHeading({
   return (
     <div className={`flex flex-col gap-4 ${alignClass}`}>
       {eyebrow && (
-        <span className="text-sm font-bold uppercase tracking-[0.15em] text-akzent">
-          {eyebrow}
-        </span>
+        <RevealBlock standalone>
+          <span className="text-sm font-bold uppercase tracking-[0.15em] text-akzent">
+            {eyebrow}
+          </span>
+        </RevealBlock>
       )}
       <h2 className="max-w-3xl text-3xl font-extrabold tracking-tight text-tannengruen md:text-4xl">
-        {title}
+        <RevealText>{title}</RevealText>
       </h2>
       {subtitle && (
-        <p className="max-w-2xl text-lg leading-relaxed text-muted">
-          {subtitle}
-        </p>
+        <RevealBlock standalone>
+          <p className="max-w-2xl text-lg leading-relaxed text-muted">{subtitle}</p>
+        </RevealBlock>
       )}
     </div>
   );

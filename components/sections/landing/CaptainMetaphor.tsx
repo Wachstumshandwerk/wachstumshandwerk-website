@@ -1,10 +1,14 @@
 import { Container } from "@/components/ui/Container";
+import { RevealBlock } from "@/components/motion/RevealBlock";
 
 export function CaptainMetaphor() {
   return (
     <section className="bg-white py-20 md:py-28">
       <Container>
-        <div className="mx-auto flex max-w-3xl flex-col gap-6 rounded-3xl border border-tannengruen/10 bg-hintergrund p-8 text-center md:p-12">
+        <RevealBlock
+          standalone
+          className="mx-auto flex max-w-3xl flex-col gap-6 rounded-3xl border border-tannengruen/10 bg-hintergrund p-8 text-center md:p-12"
+        >
           <span className="text-sm font-bold uppercase tracking-[0.15em] text-akzent">
             Du denkst dir vielleicht
           </span>
@@ -21,7 +25,7 @@ export function CaptainMetaphor() {
             einzelne Anfrage — und die fähigsten Köpfe für den Job, die dein Gewässer nachweislich
             beherrschen. Kein Kontrollverlust. Die bessere Fahrt.
           </p>
-        </div>
+        </RevealBlock>
       </Container>
     </section>
   );

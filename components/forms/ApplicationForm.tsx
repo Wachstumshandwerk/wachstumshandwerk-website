@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -56,14 +57,19 @@ export function ApplicationForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-akzent/30 bg-akzent/10 p-8 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="rounded-2xl border border-akzent/30 bg-akzent/10 p-8 text-center"
+      >
         <p className="text-lg font-semibold text-tannengruen">
           Danke für deine Bewerbung!
         </p>
         <p className="mt-2 text-[15px] text-text/70">
           Wir melden uns so schnell wie möglich bei dir zurück.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
@@ -82,7 +88,7 @@ export function ApplicationForm() {
           <select
             id="rolle"
             name="rolle"
-            className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none focus:border-akzent"
+            className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none transition-colors duration-200 focus:border-akzent"
           >
             <option value="">Initiativbewerbung</option>
             <option value="Telesales Mitarbeiter">Telesales Mitarbeiter</option>
@@ -103,7 +109,7 @@ export function ApplicationForm() {
           id="nachricht"
           name="nachricht"
           rows={4}
-          className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none focus:border-akzent"
+          className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none transition-colors duration-200 focus:border-akzent"
           placeholder="Erzähl uns kurz von dir."
         />
       </div>
@@ -114,7 +120,7 @@ export function ApplicationForm() {
         </label>
         <label
           htmlFor="lebenslauf"
-          className="flex cursor-pointer items-center justify-between rounded-xl border border-dashed border-tannengruen/30 bg-white px-4 py-3 text-[15px] text-text/70 hover:border-akzent"
+          className="flex cursor-pointer items-center justify-between rounded-xl border border-dashed border-tannengruen/30 bg-white px-4 py-3 text-[15px] text-text/70 transition-colors duration-200 hover:border-akzent"
         >
           <span>{fileName || "PDF auswählen …"}</span>
           <span className="text-xs font-semibold uppercase tracking-wide text-akzent">
@@ -135,13 +141,16 @@ export function ApplicationForm() {
         <p className="text-sm font-medium text-red-600">{errorMessage}</p>
       )}
 
-      <button
+      <motion.button
         type="submit"
         disabled={status === "loading"}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.2 }}
         className="inline-flex items-center justify-center rounded-full bg-akzent px-6 py-3.5 text-[15px] font-semibold text-tannengruen-dark transition-colors hover:brightness-95 disabled:opacity-60"
       >
         {status === "loading" ? "Wird gesendet …" : "Bewerbung absenden"}
-      </button>
+      </motion.button>
 
       <p className="text-xs leading-relaxed text-muted">
         Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer{" "}
@@ -179,7 +188,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none focus:border-akzent"
+        className="rounded-xl border border-tannengruen/20 bg-white px-4 py-3 text-[15px] text-text outline-none transition-colors duration-200 focus:border-akzent"
       />
     </div>
   );

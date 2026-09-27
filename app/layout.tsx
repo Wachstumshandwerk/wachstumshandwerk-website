@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookiebotScript } from "@/components/consent/CookiebotScript";
 import { AnalyticsScripts } from "@/components/consent/AnalyticsScripts";
+import { ProvenExpertSeal } from "@/components/ui/ProvenExpertSeal";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <AnalyticsScripts />
+        <ProvenExpertSeal />
       </body>
     </html>
   );

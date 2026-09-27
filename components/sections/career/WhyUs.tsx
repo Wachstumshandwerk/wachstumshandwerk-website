@@ -1,5 +1,7 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { RevealText } from "@/components/motion/RevealText";
+import { RevealGroup, RevealBlock } from "@/components/motion/RevealBlock";
+import { GrowthCurve } from "@/components/motion/GrowthCurve";
 
 const benefits = [
   {
@@ -28,17 +30,19 @@ export function WhyUs() {
       <Container className="grid gap-14 lg:grid-cols-[1fr_380px] lg:items-center">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-4">
-            <span className="text-sm font-bold uppercase tracking-[0.15em] text-akzent">
-              Warum Wachstumshandwerk
-            </span>
+            <RevealBlock standalone>
+              <span className="text-sm font-bold uppercase tracking-[0.15em] text-akzent">
+                Warum Wachstumshandwerk
+              </span>
+            </RevealBlock>
             <h2 className="max-w-xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
-              Was uns als Arbeitgeber ausmacht
+              <RevealText>Was uns als Arbeitgeber ausmacht</RevealText>
             </h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <RevealGroup className="grid gap-6 sm:grid-cols-2" stagger={0.1}>
             {benefits.map((benefit) => (
-              <div
+              <RevealBlock
                 key={benefit.title}
                 className="flex flex-col gap-2 rounded-2xl border border-hintergrund/10 bg-hintergrund/5 p-6"
               >
@@ -46,28 +50,14 @@ export function WhyUs() {
                 <p className="text-[15px] leading-relaxed text-hintergrund/80">
                   {benefit.description}
                 </p>
-              </div>
+              </RevealBlock>
             ))}
-          </div>
+          </RevealGroup>
         </div>
 
-        <div
-          className="relative hidden aspect-[4/5] w-full lg:block"
-          style={{
-            maskImage:
-              "radial-gradient(ellipse 78% 82% at center, black 55%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 78% 82% at center, black 55%, transparent 100%)",
-          }}
-        >
-          <Image
-            src="/fotos/enver-lachend.jpg"
-            alt="Enver Ilhan, Geschäftsführer Wachstumshandwerk"
-            fill
-            sizes="380px"
-            className="object-cover"
-          />
-        </div>
+        <RevealBlock standalone className="hidden lg:block">
+          <GrowthCurve />
+        </RevealBlock>
       </Container>
     </section>
   );
